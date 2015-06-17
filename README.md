@@ -1,7 +1,5 @@
-PRAISE TO BE GABEN
+PRAISE TO BE RICH
 =========================
-Welcome to gabegaming.com your home for gags and gabes.
+Wait why are you reading this again?
 
-"Made with love" by [@_notlikethis](http://twitter.com/_notlikethis) and [@RakeDodgers](http://twitter.com/RakeDodgers).
-
-Inspired by http://gaben.tv/
+Inspired by http://gabegaming.com
