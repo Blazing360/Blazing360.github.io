@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Market Calculator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+    body {background-color: black; color: white; font-family: Ubuntu}
+
+    .buttongreen {
+      border-radius: 4px;
+      background-color: #4CAF50;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 18px;
+      padding: 10px;
+      width: 180px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .buttongreen span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .buttongreen span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .buttongreen:hover span {
+      padding-right: 25px;
+    }
+
+    .buttongreen:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+    .buttonred {
+      border-radius: 4px;
+      background-color: #C02423;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 18px;
+      padding: 10px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .buttonred span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .buttonred span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .buttonred:hover span {
+      padding-right: 25px;
+    }
+
+    .buttonred:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+<form id="marketCalculator" action="">
+  <fieldset>
+    <legend><h2>Community Market Profit Calculator</h2></legend>
+    <p>
+      <label for="sellprice">Sell Price ($)</label>
+      <input id="sellprice" name="sellprice" type="number" required step="0.01" min="0"/>
+    </p>
+    <p>
+      <label for="buyprice">Buy Price ($)</label>
+      <input id="buyprice" name="buyprice" type="number" required step="0.01" min="0"/>
+    </p>
+    <p>
+      <button class="buttongreen" type="submit"><span>Calculate Profit </span></button>
+      or
+      <button class="buttonred" type="reset"><span>Reset</span></button>
+    </p><br>
+    <p style="font-size: 25px"><b>
+      Profit ($) =
+      <output id="profit"/></b>
+    </p>
+  </fieldset>
+</form>
+
+<script>
+    (function () {
+        function calculateprofit(sellprice, buyprice) {
+            sellprice = parseFloat(sellprice);
+            buyprice = parseFloat(buyprice);
+            return (sellprice * 0.85 - buyprice);
+        }
+
+        var profit = document.getElementById("marketCalculator");
+        if (profit) {
+            profit.onsubmit = function () {
+                this.profit.value = calculateprofit(this.sellprice.value, this.buyprice.value);
+                return false;
+            };
+        }
+    }());
+</script>
+</body>
+<footer>
+  <p>Created by: Blazing360<br>
+  Contact via Twitter: <a href="https://twitter.com/Blazing360TSL">
+    @Blazing360TSL</a></p>
+</footer>
+</html>
